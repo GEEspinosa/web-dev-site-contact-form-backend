@@ -1,9 +1,13 @@
 //imports '.require()'
 require('dotenv').config();
+
 const express = require('express');
 const contactRouter = require ('./routes/contact-route')
 
 const server = express();
+
+const cors = require('cors');
+server.use(cors())
 
 server.use(express.json()); // parse JSON body
 
