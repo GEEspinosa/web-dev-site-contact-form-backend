@@ -1,9 +1,13 @@
+//imports '.require()'
 require('dotenv').config();
 const express = require('express');
+const contactRouter = require ('./routes/contact-route')
 
 const server = express();
 
 server.use(express.json()); // parse JSON body
+
+server.use(contactRouter)
 
 const PORT = process.env.PORT || 3001;
 
