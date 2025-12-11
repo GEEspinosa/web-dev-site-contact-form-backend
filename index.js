@@ -7,7 +7,7 @@ const server = express();
 
 server.use(express.json()); // parse JSON body
 
-server.use(contactRouter)
+server.use("/api", contactRouter)
 
 const PORT = process.env.PORT || 3001;
 
