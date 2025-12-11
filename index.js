@@ -7,7 +7,12 @@ const contactRouter = require ('./routes/contact-route')
 const server = express();
 
 const cors = require('cors');
-server.use(cors())
+server.use(cors({
+    origin: [
+        "http://localhost:3000",
+    "https://gee-web-dev-portfolio.vercel.app"
+    ]}
+))
 
 server.use(express.json()); // parse JSON body
 
