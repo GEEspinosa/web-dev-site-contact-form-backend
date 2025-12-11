@@ -7,10 +7,11 @@ const contactRouter = require ('./routes/contact-route')
 const server = express();
 
 const cors = require('cors');
+const allowedOrigin = process.env.ALLOWED_ORIGIN
 server.use(cors({
     origin: [
+        allowedOrigin,
         "http://localhost:3000",
-    "https://gee-web-dev-portfolio.vercel.app"
     ]}
 ))
 
