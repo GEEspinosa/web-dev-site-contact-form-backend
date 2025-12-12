@@ -7,10 +7,10 @@ const contactRouter = require ('./routes/contact-route')
 const server = express();
 
 const cors = require('cors');
-const allowedOrigin = process.env.ALLOWED_ORIGIN
+
 server.use(cors({
     origin: [
-        allowedOrigin,
+        process.env.ALLOWED_ORIGIN,
         "http://localhost:3000"
     ]}
 ))
