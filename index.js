@@ -8,12 +8,22 @@ const server = express();
 
 const cors = require('cors');
 
+const allowedOrigins = [
+  process.env.ALLOWED_ORIGIN,
+  "http://localhost:3000",
+];
+
 server.use(cors({
-    origin: [
-        process.env.ALLOWED_ORIGIN,
-        "http://localhost:3000"
-    ]}
-))
+  origin: function(origin, callback) {
+    // Allow requests with no origin like mobile apps or curl requests
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('CORS policy: This origin is not allowed'));
+    }
+  }
+}));
 
 server.use(express.json()); // parse JSON body
 
