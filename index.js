@@ -11,7 +11,7 @@ const allowedOrigin = process.env.ALLOWED_ORIGIN
 server.use(cors({
     origin: [
         allowedOrigin,
-        "http://localhost:3000",
+        "http://localhost:3000"
     ]}
 ))
 
